@@ -9,4 +9,4 @@ sudo apt-get install -y git-core
 
 git clone https://github.com/saravji/notebook-server.git
 
-./notebook-server/setup.sh  
+source ./notebook-server/setup.sh  
