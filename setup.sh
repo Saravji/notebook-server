@@ -17,7 +17,7 @@ openssl req -x509 -nodes -days 3650 -newkey rsa:1024 -keyout ./certificate/mykey
 echo "c.NotebookApp.certfile = u'/home/$USER/certificate/mycert.pem'" >> ./.jupyter/jupyter_notebook_config.py
 echo "c.NotebookApp.keyfile = u'/home/$USER/certificate/mykey.key'" >> ./.jupyter/jupyter_notebook_config.py
 echo "c.NotebookApp.ip = '*'" >> ./.jupyter/jupyter_notebook_config.py
-echo "c.NotebookApp.notebook_dir = u'/home/$USER/notebook_work' >> ./.jupyter/jupyter_notebook_config.py
+echo "c.NotebookApp.notebook_dir = u'/home/$USER/notebook_work'" >> ./.jupyter/jupyter_notebook_config.py
 echo "c.NotebookApp.open_browser = False" >> ./.jupyter/jupyter_notebook_config.py
 echo "c.NotebookApp.port = 8890" >> ./.jupyter/jupyter_notebook_config.py
 echo "c.NotebookApp.password_required = False" >> ./.jupyter/jupyter_notebook_config.py
