@@ -17,3 +17,5 @@ echo "c.NotebookApp.keyfile = u'/home/$USER/certificate/mykey.key'" >> ./.jupyte
 echo "c.NotebookApp.ip = '*'" >> ./.jupyter_notebook_config.py
 echo "c.NotebookApp.open_browser = False" >> ./.jupyter_notebook_config.py
 echo "c.NotebookApp.port = 8890" >> ./.jupyter_notebook_config.py
+echo "c.NotebookApp.password_required = True" >> ./.jupyter_notebook_config.py
+echo "c.NotebookApp.password = u'sha1:'" >> ./.jupyter_notebook_config.py
