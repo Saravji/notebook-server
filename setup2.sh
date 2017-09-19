@@ -1,3 +1,4 @@
+#!/bin/bash
 mkdir certificate
 conda create --name kaggle_env python=3
 conda install --name kaggle_env numpy seaborn scipy scikit-learn keras tensorflow
