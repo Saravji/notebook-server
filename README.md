@@ -7,6 +7,6 @@ cd $HOME
 
 sudo apt-get install -y git-core
 
-git clone https://github.com/saravji/setup.git
+git clone https://github.com/saravji/notebook-server.git
 
-./setup/setup.sh  
+./notebook-server/setup.sh  
