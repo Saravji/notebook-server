@@ -18,4 +18,7 @@ echo "c.NotebookApp.ip = '*'" >> ./.jupyter_notebook_config.py
 echo "c.NotebookApp.open_browser = False" >> ./.jupyter_notebook_config.py
 echo "c.NotebookApp.port = 8890" >> ./.jupyter_notebook_config.py
 echo "c.NotebookApp.password_required = True" >> ./.jupyter_notebook_config.py
-echo "c.NotebookApp.password = u'sha1:'" >> ./.jupyter_notebook_config.py
+pwd=$(cat ./.jupyter/jupyter_notebook_config.json | sed -n -e 's/^.*"password": //p' | sed 's/[^"]*"\([^"]*\)".*/\1/')
+echo "c.NotebookApp.password = u'$pwd'" >> ./.jupyter_notebook_config.py
+
+
