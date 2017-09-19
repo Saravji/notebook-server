@@ -1,8 +1,8 @@
 cd /tmp
 curl -O https://repo.continuum.io/archive/Anaconda3-4.4.0-Linux-x86_64.sh
 bash ./Anaconda3-4.4.0-Linux-x86_64.sh
-source ~/.bashrc
 cd ~
+source ~/.bashrc
 mkdir certificate
 conda create --name kaggle_env python=3
 conda install --name kaggle_env numpy seaborn scipy scikit-learn keras tensorflow
