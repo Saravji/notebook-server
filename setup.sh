@@ -5,10 +5,11 @@ bash ./Anaconda3-4.4.0-Linux-x86_64.sh
 cd ~
 source ~/.bashrc
 mkdir certificate
-conda create --name kaggle_env python=3
-conda install --name kaggle_env numpy seaborn scipy scikit-learn keras tensorflow
-conda update conda
-conda update anaconda
+#conda create --name kaggle_env python=3
+#conda install --name kaggle_env numpy seaborn scipy scikit-learn keras tensorflow
+conda install -y numpy seaborn scipy scikit-learn keras tensorflow
+conda update -y conda
+conda update -y anaconda
 jupyter notebook --generate-config
 jupyter notebook password
 openssl req -x509 -nodes -days 3650 -newkey rsa:1024 -keyout ./certificate/mykey.key -out ./certificate/mycert.pem 
