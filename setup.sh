@@ -6,8 +6,6 @@ cd ~
 source ~/.bashrc
 mkdir certificate
 mkdir notebook_work
-#conda create --name kaggle_env python=3
-#conda install --name kaggle_env numpy seaborn scipy scikit-learn keras tensorflow
 conda install -y numpy seaborn scipy scikit-learn keras tensorflow
 conda update -y conda
 conda update -y anaconda
