@@ -9,4 +9,8 @@ sudo apt-get install -y git-core
 
 git clone https://github.com/saravji/notebook-server.git
 
-source ./notebook-server/setup.sh  
+source ./notebook-server/setup.sh
+
+if connectivity to AZURE Data warehouse is required execute:
+
+source ./notebook-server/setup_odbc.sh
