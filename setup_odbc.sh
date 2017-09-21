@@ -1,6 +1,6 @@
-conda install libgcc version=5.2.0
-conda install pyodbc version=4.0.17
-conda install sqlalchemy version=1.1.13
+conda install -c anaconda libgcc
+conda install -c anaconda pyodbc
+conda install -c anaconda sqlalchemy
 curl https://packages.microsoft.com/config/ubuntu/16.04/prod.list | sudo tee /etc/apt/sources.list.d/mssql-tools.list
 sudo apt-get update
 sudo ACCEPT_EULA=Y apt-get install mssql-tools
