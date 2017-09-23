@@ -21,3 +21,4 @@ echo "c.NotebookApp.port = 8890" >> ./.jupyter/jupyter_notebook_config.py
 echo "c.NotebookApp.password_required = False" >> ./.jupyter/jupyter_notebook_config.py
 pwd=$(cat ./.jupyter/jupyter_notebook_config.json | sed -n -e 's/^.*"password": //p' | sed 's/[^"]*"\([^"]*\)".*/\1/')
 echo "c.NotebookApp.password = u'$pwd'" >> ./.jupyter/jupyter_notebook_config.py
+sudo apt install unzip
