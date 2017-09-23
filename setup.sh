@@ -22,5 +22,6 @@ echo "c.NotebookApp.password_required = False" >> ./.jupyter/jupyter_notebook_co
 pwd=$(cat ./.jupyter/jupyter_notebook_config.json | sed -n -e 's/^.*"password": //p' | sed 's/[^"]*"\([^"]*\)".*/\1/')
 echo "c.NotebookApp.password = u'$pwd'" >> ./.jupyter/jupyter_notebook_config.py
 sudo cp notebook-server/interfaces /etc/network/interfaces
-systemctl restart ifup@eth0
+sudo ip addr flush ens160
+sudo mctl restart networking.service
 sudo apt install unzip
