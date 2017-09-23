@@ -24,4 +24,8 @@ echo "c.NotebookApp.password = u'$pwd'" >> ./.jupyter/jupyter_notebook_config.py
 sudo cp notebook-server/interfaces /etc/network/interfaces
 sudo ip addr flush ens160
 sudo mctl restart networking.service
+sudo apt-get install openssh-server
+sudo sed -i 's/prohibit-password/yes/' /etc/ssh/sshd_config
+sudo service ssh restart
 sudo apt install unzip
+sudo apt-get update && sudo apt-get dist-upgrade
