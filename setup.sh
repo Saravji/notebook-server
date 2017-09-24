@@ -28,7 +28,7 @@ if [ $statipflg == 'y' ] || [@statipflg == 'Y' ]
 then
   sudo cp notebook-server/interfaces /etc/network/interfaces
   sudo ip addr flush ens160
-  sudo sysmctl restart networking.service
+  sudo systemctl restart networking.service
 fi
 read -p "Need to set up ssh server? [N|y] " sshsrvflg
 if [ $sshsrvflg == 'y' ] || [@sshsrvflg == 'Y' ] 
