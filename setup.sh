@@ -17,15 +17,24 @@ echo "c.NotebookApp.keyfile = u'/home/$USER/certificate/mykey.key'" >> ./.jupyte
 echo "c.NotebookApp.ip = '*'" >> ./.jupyter/jupyter_notebook_config.py
 echo "c.NotebookApp.notebook_dir = u'/home/$USER/notebook_work'" >> ./.jupyter/jupyter_notebook_config.py
 echo "c.NotebookApp.open_browser = False" >> ./.jupyter/jupyter_notebook_config.py
-echo "c.NotebookApp.port = 8890" >> ./.jupyter/jupyter_notebook_config.py
+read -p "Which port shall jupyter notebook be available on? " port
+echo "c.NotebookApp.port = $port" >> ./.jupyter/jupyter_notebook_config.py
 echo "c.NotebookApp.password_required = False" >> ./.jupyter/jupyter_notebook_config.py
 pwd=$(cat ./.jupyter/jupyter_notebook_config.json | sed -n -e 's/^.*"password": //p' | sed 's/[^"]*"\([^"]*\)".*/\1/')
 echo "c.NotebookApp.password = u'$pwd'" >> ./.jupyter/jupyter_notebook_config.py
-sudo cp notebook-server/interfaces /etc/network/interfaces
-sudo ip addr flush ens160
-sudo mctl restart networking.service
-sudo apt-get install openssh-server
-sudo sed -i 's/prohibit-password/yes/' /etc/ssh/sshd_config
-sudo service ssh restart
+read -p "Setting up static ip address? [N|y] " statipflg
+if [ $statipflg == 'y' ] || [@statipflg == 'Y' ] 
+then
+  sudo cp notebook-server/interfaces /etc/network/interfaces
+  sudo ip addr flush ens160
+  sudo mctl restart networking.service
+fi
+read -p "Need to set up ssh server? [N|y] " sshsrvflg
+if [ $sshsrvflg == 'y' ] || [@sshsrvflg == 'Y' ] 
+then
+  sudo apt-get install openssh-server
+  sudo sed -i 's/prohibit-password/yes/' /etc/ssh/sshd_config
+  sudo service ssh restart
+fi
 sudo apt install unzip
 sudo apt-get update && sudo apt-get dist-upgrade
