@@ -9,6 +9,7 @@ mkdir notebook_work
 conda install -y numpy seaborn scipy scikit-learn keras tensorflow
 conda update -y conda
 conda update -y anaconda
+conda update -y notebook
 jupyter notebook --generate-config
 jupyter notebook password
 openssl req -x509 -nodes -days 3650 -newkey rsa:1024 -keyout ./certificate/mykey.key -out ./certificate/mycert.pem 
