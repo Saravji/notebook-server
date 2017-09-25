@@ -1,12 +1,13 @@
 #!/bin/bash
 cd /tmp
 curl -O https://repo.continuum.io/archive/Anaconda3-4.4.0-Linux-x86_64.sh
-bash ./Anaconda3-4.4.0-Linux-x86_64.sh
+source bash ./Anaconda3-4.4.0-Linux-x86_64.sh
 cd ~
 source ~/.bashrc
 mkdir certificate
 mkdir notebook_work
 conda install -y numpy seaborn scipy scikit-learn keras tensorflow
+conda install -y -c conda-forge xgboost
 conda update -y conda
 conda update -y anaconda
 conda update -y notebook
