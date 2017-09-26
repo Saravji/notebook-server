@@ -38,5 +38,5 @@ then
   sudo sed -i 's/prohibit-password/yes/' /etc/ssh/sshd_config
   sudo service ssh restart
 fi
-sudo apt install unzip
+sudo apt-get install unzip zip
 sudo apt-get update && sudo apt-get dist-upgrade
