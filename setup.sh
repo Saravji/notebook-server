@@ -24,19 +24,39 @@ echo "c.NotebookApp.port = $port" >> ./.jupyter/jupyter_notebook_config.py
 echo "c.NotebookApp.password_required = False" >> ./.jupyter/jupyter_notebook_config.py
 pwd=$(cat ./.jupyter/jupyter_notebook_config.json | sed -n -e 's/^.*"password": //p' | sed 's/[^"]*"\([^"]*\)".*/\1/')
 echo "c.NotebookApp.password = u'$pwd'" >> ./.jupyter/jupyter_notebook_config.py
-read -p "Setting up static ip address? [N|y] " statipflg
-if [ $statipflg == 'y' ] || [@statipflg == 'Y' ] 
-then
-  sudo cp notebook-server/interfaces /etc/network/interfaces
-  sudo ip addr flush ens160
-  sudo systemctl restart networking.service
-fi
-read -p "Need to set up ssh server? [N|y] " sshsrvflg
-if [ $sshsrvflg == 'y' ] || [@sshsrvflg == 'Y' ] 
-then
-  sudo apt-get install openssh-server
-  sudo sed -i 's/prohibit-password/yes/' /etc/ssh/sshd_config
-  sudo service ssh restart
-fi
+while true; do
+    read -p "Setting up static ip address? [N|y] " -i 'N' statipflg
+    case $statipflg in
+        [Yy]* ) 
+          sudo cp notebook-server/interfaces /etc/network/interfaces
+          sudo ip addr flush ens160
+          sudo systemctl restart networking.service;
+          break;;
+        [Nn]* ) exit;;
+        * ) echo "Please answer yes or no.";;
+    esac
+done
+while true; do
+    read -p "Need to set up ssh server? [N|y] " -i 'N' sshsrvflg
+    case $sshsrvflg in
+        [Yy]* ) 
+          sudo apt-get install openssh-server
+          sudo sed -i 's/prohibit-password/yes/' /etc/ssh/sshd_config
+          sudo service ssh restart;
+          break;;
+        [Nn]* ) exit;;
+        * ) echo "Please answer yes or no.";;
+    esac
+done
+while true; do
+    read -p "Want to add R kernel? [N|y] " -i 'N' rkernelflg
+    case $rkernelflg in
+        [Yy]* ) 
+          conda install -c r r-essentials;
+          break;;
+        [Nn]* ) exit;;
+        * ) echo "Please answer yes or no.";;
+    esac
+done
 sudo apt-get install unzip zip
 sudo apt-get update && sudo apt-get dist-upgrade
