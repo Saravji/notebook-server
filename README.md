@@ -1,7 +1,7 @@
 # notebook-server
 script to install jupyter notebook server on base ubuntu server
 
-after successful deplyment of ubuntu and logging into the VM execute:
+after successful deployment of ubuntu and logging into the VM execute:
 ```
 cd $HOME
 
