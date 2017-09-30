@@ -3,7 +3,7 @@ cd /tmp
 curl -O https://repo.continuum.io/archive/Anaconda3-4.4.0-Linux-x86_64.sh
 bash ./Anaconda3-4.4.0-Linux-x86_64.sh
 cd ~
-echo "PATH=\home\$USER\anaconda3:$PATH" >>~/.bash_profile
+echo "PATH=/home/$USER/anaconda3:$PATH" >>~/.bash_profile
 source ~/.bashrc
 mkdir certificate
 mkdir notebook_work
@@ -33,7 +33,7 @@ while true; do
           sudo ip addr flush ens160
           sudo systemctl restart networking.service;
           break;;
-        [Nn]* ) exit;;
+        [Nn]* ) break;;
         * ) echo "Please answer yes or no.";;
     esac
 done
@@ -45,7 +45,7 @@ while true; do
           sudo sed -i 's/prohibit-password/yes/' /etc/ssh/sshd_config
           sudo service ssh restart;
           break;;
-        [Nn]* ) exit;;
+        [Nn]* ) break;;
         * ) echo "Please answer yes or no.";;
     esac
 done
@@ -55,7 +55,7 @@ while true; do
         [Yy]* ) 
           conda install -c r r-essentials;
           break;;
-        [Nn]* ) exit;;
+        [Nn]* ) break;;
         * ) echo "Please answer yes or no.";;
     esac
 done
