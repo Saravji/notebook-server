@@ -15,4 +15,4 @@ iface ens160 inet static
  network 192.168.0.0
  broadcast 192.168.0.255
  gateway 192.168.0.3
- dns-nameservers 192.168.0.60 192.168.0.70
+ dns-nameservers 192.168.0.41 192.168.0.42 192.168.0.43
