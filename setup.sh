@@ -8,8 +8,8 @@ echo "PATH=/home/$USER/anaconda3/bin:$PATH" >> ~/.bash_profile
 source ~/.bashrc
 mkdir certificate
 mkdir notebook_work
-conda install -y numpy seaborn scipy scikit-learn keras tensorflow
-conda install -y -c conda-forge xgboost ipython-autotime lightgbm
+conda install -y numpy seaborn scipy scikit-learn keras tensorflow gensim
+conda install -y -c conda-forge xgboost ipython-autotime lightgbm spacy
 conda update -y conda
 conda update -y anaconda
 conda update -y notebook
