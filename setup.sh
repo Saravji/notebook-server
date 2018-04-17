@@ -9,7 +9,7 @@ source ~/.bashrc
 mkdir certificate
 mkdir notebook_work
 conda install -y numpy seaborn scipy scikit-learn keras tensorflow gensim
-conda install -y -c conda-forge xgboost ipython-autotime lightgbm spacy jupyter_contrib_nbextensions
+conda install -y -c conda-forge xgboost ipython-autotime lightgbm spacy jupyter_contrib_nbextensions jupyter_nbextensions_configurator
 conda install -y -c saravji boruta
 conda update -y conda
 conda update -y anaconda
@@ -28,6 +28,7 @@ echo "c.NotebookApp.password_required = False" >> ./.jupyter/jupyter_notebook_co
 pwd=$(cat ./.jupyter/jupyter_notebook_config.json | sed -n -e 's/^.*"password": //p' | sed 's/[^"]*"\([^"]*\)".*/\1/')
 echo "c.NotebookApp.password = u'$pwd'" >> ./.jupyter/jupyter_notebook_config.py
 jupyter contrib nbextension install --user
+jupyter nbextensions_configurator enable --user
 while true; do
     read -p "Setting up static ip address? [N|y] " -i 'N' statipflg
     case $statipflg in
