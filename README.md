@@ -10,10 +10,10 @@ sudo apt-get install -y git-core
 git clone https://github.com/saravji/notebook-server.git
 ```
     if static network is required:
-    ```
+```
     nano ./notebook-server/interfaces
     source ./notebook-server/stat-network.sh
-    ```
+```
 the main installation script:
 ```
 source ./notebook-server/setup.sh
