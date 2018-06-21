@@ -11,6 +11,7 @@ mkdir notebook_work
 conda install -y numpy seaborn scipy scikit-learn keras tensorflow gensim
 conda install -y -c conda-forge xgboost ipython-autotime lightgbm spacy jupyter_contrib_nbextensions jupyter_nbextensions_configurator
 conda install -y -c saravji boruta
+conda install -c ostrokach-forge graph-tool
 conda update -y conda
 conda update -y anaconda
 conda update -y notebook
@@ -29,30 +30,6 @@ pwd=$(cat ./.jupyter/jupyter_notebook_config.json | sed -n -e 's/^.*"password": 
 echo "c.NotebookApp.password = u'$pwd'" >> ./.jupyter/jupyter_notebook_config.py
 jupyter contrib nbextension install --user
 jupyter nbextensions_configurator enable --user
-while true; do
-    read -p "Setting up static ip address? [N|y] " -i 'N' statipflg
-    case $statipflg in
-        [Yy]* ) 
-          sudo cp notebook-server/interfaces /etc/network/interfaces
-          sudo ip addr flush ens160
-          sudo systemctl restart networking.service;
-          break;;
-        [Nn]* ) break;;
-        * ) echo "Please answer yes or no.";;
-    esac
-done
-while true; do
-    read -p "Need to set up ssh server? [N|y] " -i 'N' sshsrvflg
-    case $sshsrvflg in
-        [Yy]* ) 
-          sudo apt-get install openssh-server
-          sudo sed -i 's/prohibit-password/yes/' /etc/ssh/sshd_config
-          sudo service ssh restart;
-          break;;
-        [Nn]* ) break;;
-        * ) echo "Please answer yes or no.";;
-    esac
-done
 while true; do
     read -p "Want to add R kernel? [N|y] " -i 'N' rkernelflg
     case $rkernelflg in
