@@ -11,7 +11,9 @@ mkdir notebook_work
 conda install -y numpy seaborn scipy scikit-learn keras tensorflow gensim
 conda install -y -c conda-forge xgboost ipython-autotime lightgbm spacy jupyter_contrib_nbextensions jupyter_nbextensions_configurator
 conda install -y -c saravji boruta
-conda install -c ostrokach-forge graph-tool
+conda install -y -c pkgw-forge gtk3
+conda install -y -c conda-forge pygobject matplotlib 
+conda install -y -c ostrokach-forge graph-tool
 conda update -y conda
 conda update -y anaconda
 conda update -y notebook
