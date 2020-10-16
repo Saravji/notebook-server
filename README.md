@@ -19,13 +19,13 @@ ip addr
 ```
 
 there will be a loopback entry and a network address. Find the adapter name. If it is other than "enp0s3", replace "enp0s3" with your adapter entry. There is one locations this needs to happen:  
-- in file interfaces_20_04, line 3  
+- in file interfaces, line 3  
 
-update interfaces_20_04 file to your requires static network configuration:  
+update interfaces file to your requires static network configuration:  
 
 ```
-    nano ./notebook-server/interfaces_20_04
-    source ./notebook-server/stat_network_20_04.sh
+    nano ./notebook-server/interfaces
+    source ./notebook-server/stat_network.sh
 ```
 
 **This will reboot your server**
@@ -108,15 +108,15 @@ git clone https://github.com/saravji/notebook-server.git
 ```
 if static network is required:
 ```
-    nano ./notebook-server/interfaces
-    source ./notebook-server/stat_network.sh
+    nano ./notebook-server/interfaces_16_04
+    source ./notebook-server/stat_network_16_04.sh
 ```
 the main installation script:
 ```
-source ./notebook-server/setup.sh
+source ./notebook-server/setup_16_04.sh
 ```
 ### optional: Connectivity AZURE Data Warehouse:
 if connectivity to AZURE Data warehouse is required execute (this is experimental and might be outdated by now):
 ```
-source ./notebook-server/setup_odbc.sh
+source ./notebook-server/setup_odbc_16_04.sh
 ```

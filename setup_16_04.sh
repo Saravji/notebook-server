@@ -1,14 +1,23 @@
 #!/bin/bash
 cd /tmp
-curl -O https://repo.anaconda.com/archive/Anaconda3-2020.07-Linux-x86_64.sh
-bash ./Anaconda3-2020.07-Linux-x86_64.sh
+curl -O https://repo.continuum.io/archive/Anaconda3-4.4.0-Linux-x86_64.sh
+bash ./Anaconda3-4.4.0-Linux-x86_64.sh
 cd ~
+echo "PATH=/home/$USER/anaconda3:/home/$USER/anaconda3/bin:$PATH" >> ~/.bash_profile 
 source ~/.bashrc
 mkdir certificate
 mkdir notebook_work
-conda install -y -c anaconda gensim tensorflow
+conda install -y numpy seaborn scipy scikit-learn keras tensorflow gensim
 conda config --add channels conda-forge
-conda install -y -c conda-forge xgboost ipython-autotime lightgbm spacy jupyter_contrib_nbextensions jupyter_nbextensions_configurator boruta_py
+conda config --append channels ostrokach-forge
+conda config --append channels saravji
+conda config --append channels pkgw-forge
+conda install -c pkgw/label/superseded modern-xorg-stack
+conda install -y -c conda-forge xgboost ipython-autotime lightgbm spacy jupyter_contrib_nbextensions jupyter_nbextensions_configurator
+conda install -y -c saravji boruta
+conda install -y -c pkgw-forge gtk3
+conda install -y -c conda-forge pygobject matplotlib libsodium
+conda install -y -c ostrokach-forge graph-tool
 conda update -y conda
 conda update -y anaconda
 conda update -y notebook
@@ -38,3 +47,4 @@ while true; do
     esac
 done
 sudo apt-get install unzip zip
+sudo apt-get update && sudo apt-get dist-upgrade

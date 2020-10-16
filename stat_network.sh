@@ -1,4 +1,4 @@
 #!/bin/bash
-sudo cp notebook-server/interfaces /etc/network/interfaces
-sudo ip addr flush ens160
-sudo systemctl restart networking.service;
+sudo cp notebook-server/interfaces /etc/netplan/00-installer-config.yaml
+sudo netplan apply
+sudo reboot
