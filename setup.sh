@@ -7,11 +7,12 @@ cd ~
 source ~/.bashrc
 mkdir certificate
 mkdir notebook_work
-conda install -y numpy scipy scikit-learn keras tensorflow gensim
+conda install -y -c anaconda gensim tensorflow
+#conda install -y numpy scipy scikit-learn keras tensorflow gensim
 conda config --add channels conda-forge
-conda config --append channels saravji
-conda config --append channels pkgw-forge
-conda install -c pkgw/label/superseded modern-xorg-stack
+#conda config --append channels saravji
+#conda config --append channels pkgw-forge
+#conda install -c pkgw/label/superseded modern-xorg-stack
 conda install -y -c conda-forge xgboost ipython-autotime lightgbm spacy jupyter_contrib_nbextensions jupyter_nbextensions_configurator boruta_py
 #conda install -y -c saravji boruta
 #conda install -y -c pkgw-forge gtk3
