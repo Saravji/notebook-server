@@ -28,17 +28,27 @@ update interfaces_20_04 file to your requires static network configuration:
     source ./notebook-server/stat_network_20_04.sh
 ```
 
+**This will reboot your server**
+
+
 the main installation script:
 
 ```
 source ./notebook-server/setup.sh
 ```
 
+on the prompt for the license agreement, go down by pressing [ENTER] repeatedly until you can enter 'yes'
+
+enter 'yes when asked to run conda init
+
+
+
 ### to-do:
 
 verify odbc connection for Connectivity to AZURE Data Warehouse
 
-------
+-----
+
 
 
 ## original version for ubuntu 16.04 LTS:

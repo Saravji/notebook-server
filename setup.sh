@@ -7,15 +7,15 @@ cd ~
 source ~/.bashrc
 mkdir certificate
 mkdir notebook_work
-conda install -y numpy seaborn scipy scikit-learn keras tensorflow gensim
+conda install -y numpy scipy scikit-learn keras tensorflow gensim
 conda config --add channels conda-forge
 conda config --append channels saravji
 conda config --append channels pkgw-forge
 conda install -c pkgw/label/superseded modern-xorg-stack
-conda install -y -c conda-forge xgboost ipython-autotime lightgbm spacy jupyter_contrib_nbextensions jupyter_nbextensions_configurator
-conda install -y -c saravji boruta
-conda install -y -c pkgw-forge gtk3
-conda install -y -c conda-forge pygobject matplotlib libsodium
+conda install -y -c conda-forge xgboost ipython-autotime lightgbm spacy jupyter_contrib_nbextensions jupyter_nbextensions_configurator boruta_py
+#conda install -y -c saravji boruta
+#conda install -y -c pkgw-forge gtk3
+#conda install -y -c conda-forge pygobject libsodium boruta_py
 conda update -y conda
 conda update -y anaconda
 conda update -y notebook
@@ -45,4 +45,4 @@ while true; do
     esac
 done
 sudo apt-get install unzip zip
-sudo apt-get update && sudo apt-get dist-upgrade
+#sudo apt-get update && sudo apt-get dist-upgrade
