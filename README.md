@@ -8,14 +8,14 @@ script to install jupyter notebook server on base ubuntu server
 after successful deployment of ubuntu and logging into the VM:
 
 ```
-git clone https://github.com/saravji/notebook-server.git
+    git clone https://github.com/saravji/notebook-server.git
 ```
 #### optional: set up static network:
 
 find your network interface:
 
 ```
-ip addr
+    ip addr
 ```
 
 there will be a loopback entry and a network address. Find the adapter name. If it is other than "enp0s3", replace "enp0s3" with your adapter entry. There is one locations this needs to happen:  
@@ -34,13 +34,24 @@ update interfaces file to your requires static network configuration:
 the main installation script:
 
 ```
-source ./notebook-server/setup.sh
+    source ./notebook-server/setup.sh
 ```
 
-on the prompt for the license agreement, go down by pressing [ENTER] repeatedly until you can enter 'yes'
+on the prompt for the license agreement, go down by pressing [ENTER] repeatedly until you can enter 'yes'  
 
-enter 'yes when asked to run conda init
+confirm default installation location  
 
+enter ```yes``` when asked to run conda init  
+
+enter the password you want to set for the jupyter notebook server  
+
+enter certificate information  
+
+enter port number  
+
+adding R kernel prompt  
+
+Finished!
 
 
 ### to-do:
