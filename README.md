@@ -60,4 +60,4 @@ verify odbc connection for Connectivity to AZURE Data Warehouse
 
 ## previous versions
 
-- [ubuntu 16.04 LTS + Anaconda3-4.4.0](../README_16_04.md)
+- [ubuntu 16.04 LTS + Anaconda3-4.4.0](README_16_04.md)
